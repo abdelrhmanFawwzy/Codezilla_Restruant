@@ -23,11 +23,13 @@ message_2 = '''1. Add another item
 4. Exit'''
 # intilizing dict for orders
 orders = {}
+# intilizing list for Total
 toatl = []
 
 # -------------------------------------------------------------------
-# Loop until user press Enter
+# print this message once
 print("Welcom to codeizlla resturant")
+# Loop until user press Enter
 while True:
     print(message_1)
     # ask user for desierd item
@@ -36,7 +38,7 @@ while True:
     print("-"*60)
     # if choose 1 (pizaas)
     if desierd_item == "1":
-        # confirm category
+        # confirm category (pizaas)
         category = pizzas
         order_type = "pizza"
         max_option = len(pizzas)
@@ -48,14 +50,14 @@ while True:
         
     # elif choose 2 (burgers)
     elif desierd_item == "2":
-        # confirm category
+        # confirm category (burgers)
         category = burgers
         order_type = "burger"
         max_option = len(burgers)
-        # loop throgh pizaas dict
+        # loop throgh burgers dict
         # use enumerat for (num)
         for num, cat in enumerate(category, 1):
-            # print num. pizaa kind: price EGP
+            # print num. burgers kind: price EGP
             print(f"{num}. {cat}: {category[cat]} EGP")
         
     # elif choose 3 (Drinks)
@@ -64,32 +66,32 @@ while True:
         category = drinks
         order_type = "drink"
         max_option = len(drinks)
-        # loop throgh pizaas dict
+        # loop throgh drinks dict
         # use enumerat for (num)
         for num, cat in enumerate(category, 1):
-            # print num. pizaa kind: price EGP
+            # print num. drinks kind: price EGP
             print(f"{num}. {cat}: {category[cat]} EGP")
     # elif choose 4 (soups)
     elif desierd_item == "4":
-        # confirm category (drinks)
+        # confirm category (soups)
         category = soups
         order_type = "soup"
         max_option = len(soups)
-        # loop throgh pizaas dict
+        # loop throgh soups dict
         # use enumerat for (num)
         for num, cat in enumerate(category, 1):
-            # print num. pizaa kind: price EGP
+            # print num. soups kind: price EGP
             print(f"{num}. {cat}: {category[cat]} EGP")
     # elif choose 5 (desserts)
     elif desierd_item == "5":
-        # confirm category (drinks)
+        # confirm category (desserts)
         category = desserts
         order_type = "dessert"
         max_option = len(desserts)
-        # loop throgh pizaas dict
+        # loop throgh desserts dict
         # use enumerat for (num)
         for num, cat in enumerate(category, 1):
-            # print num. pizaa kind: price EGP
+            # print num. desserts kind: price EGP
             print(f"{num}. {cat}: {category[cat]} EGP")
     # elif press Enter
     elif desierd_item == "":
@@ -126,17 +128,15 @@ you want (0 to return to the previos menu): "))
     # show user  message_2
     print(message_2)
     choice = input("Please Enter you choice: ")
-    # if choice 1
+    # if choice 1 (Add another item)
     if choice == "1":
         # return to the main loop
          continue
-    # if choice 2
+    # if choice 2 (view the order and return to main menu)
     elif choice == "2":
         print("-"*40)
         print("Your order is: ")
         print("-"*40)
-        if not sum(toatl):
-            print("Total : 0.00 EGP")
         # loop through order dict 
         for order in orders:
             # print 
@@ -148,7 +148,7 @@ you want (0 to return to the previos menu): "))
             print("-"*40)
         print(f"Total: {sum(toatl):,.2f} EGP")
               
-    # elif choice 3
+    # elif choice 3 (clear the order)
     elif choice == "3":
         # clear all orders data
         orders.clear()
@@ -156,7 +156,7 @@ you want (0 to return to the previos menu): "))
         toatl.clear()
         # ptint order cleared
         print("Order Cleared")
-    # if choice 4
+    # if choice 4 (Exit )
     elif choice == "4":
     # Exit the program
         break      
@@ -170,19 +170,17 @@ print("-"*40)
 print("Your order is: ")
 print("-"*40)
 # loop through order dict 
-if not sum(toatl):
-    print("Total : 0.00 EGP")
-else:
-    for order in orders:
-    # print 
-        print(f"Item: {order}") 
-        print(f"Price: {orders[order]["price"]:.2f} EGP")
-        print(f"Quantity: {orders[order]["quantity"]} units")
-        print("-"*20)
-        print(f"Item total:{orders[order]["cat_total"]:.2f} EGP")
-        print("-"*40)
-        print(f"Total: {sum(toatl):,.2f} EGP")
-                
+
+for order in orders:
+   # print 
+    print(f"Item: {order}") 
+    print(f"Price: {orders[order]["price"]:.2f} EGP")
+    print(f"Quantity: {orders[order]["quantity"]} units")
+    print("-"*20)
+    print(f"Item total:{orders[order]["cat_total"]:.2f} EGP")
+    print("-"*40)
+print(f"Total: {sum(toatl):,.2f} EGP")
+                  
         
         
     
